@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>Prayer Times</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/normilze.css" />
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2146/2146434.png" type="image/x-icon" />
+</head>
+
+<body>
+  <main class="root">
+    <header>
+      <div class="container">
+        <nav>
+          <div class="left-nav">
+            <span id="hijri-date">9 رمضان 1444 هـ</span>
+            <button id="azkar" class="azkar">أذكار وأدعية 🤲</button>
+          </div>
+          <div class="right-nav">
+            <span id="date">March 31, 2023</span>
+            <button id="quick-links" class="azkar">روابط سريعة</button>
+          </div>
+        </nav>
+        <ul class="azkar-categories-container" id="azkar-categories-container">
+          <li id="morning-azkar">أذكار الصباح والمساء</li>
+          <li id="quran-azkar">أدعية قرآنية</li>
+          <li id="your-azkar">أذكارك الخاصة</li>
+        </ul>
+      </div>
+
+      <ul class="quick-links-container" id="quick-links-container">
+        <li id="link0">سيد الاستغفار</li>
+        <li id="link1">كيفية التسبيح</li>
+        <li id="link2">تحقق من صحة الحديث</li>
+      </ul>
+
+      <div id="link-0-contnent" class="link">
+        <i class="fa fa-x fa close"></i>
+        <q>
+          اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ
+          وَوَعْدِكَ مَا
+          اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ
+          بِذَنْبِي
+          فَاغْفِرْ
+          لِي، فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ
+        </q>
+        <a href="https://islamonline.net/%D8%B3%D9%8A%D8%AF-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%BA%D9%81%D8%A7%D8%B1/"
+          title="أقرا في فضل سيد الاستغفار">أقرأ في فضل سيد الاستغفار</a>
+      </div>
+      <div id="link-1-contnent" class="link">
+        <i class="fa fa-x fa close"></i>
+        <p>كيف كان النبي يسبح؟</p>
+        <span id="link-2-contnent-api"></span>
+        <a href="https://youtu.be/bvk-A9dXlKs" title="كيف كان النبي يسبح؟"> شرح صوتي ل كيف كان النبي يسبح؟</a>
+      </div>
+      <div id="link-2-contnent" class="link">
+        <i class="fa fa-x fa close"></i>
+        <a href="https://dorar.net/hadith/search" title="تحقق من صحة الحديث">تحقق من صحة وقوة الحديث</a>
+      </div>
+
+    </header>
+    <div class="card morning-azkar-handler">
+      <div class="container">
+        <i class="fa-solid fa-x close"></i>
+        <ul>
+          <div class="converter">
+            <button id="morning">أذكار المساء</button>
+            <button id="evening">أذكار الصباح</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="card quran-azkar-handler">
+      <div class="container">
+        <i class="fa-solid fa-x close"></i>
+        <p class="zekr-type-title" id="zekr-type-title">أدعية قرآنية</p>
+        <ul>
+          <li>
+            <span class="zekr">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ٦ صِرَاطَ الَّذِينَ
+              أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا
+              الضَّالِّينَ ٧</span>
+            <span class="quoted" id="quoted">﴿ سورة الفاتحة ﴾</span>
+          </li>
+          <li>
+            <span class="zekr">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ٦ صِرَاطَ الَّذِينَ
+              أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا
+              الضَّالِّينَ ٧</span>
+            <span class="quoted" id="quoted">﴿ سورة الفاتحة ﴾</span>
+          </li>
+          <li>
+            <span class="zekr">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ٦ صِرَاطَ الَّذِينَ
+              أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا
+              الضَّالِّينَ ٧</span>
+            <span class="quoted" id="quoted">﴿ سورة الفاتحة ﴾</span>
+          </li>
+          <li>
+            <span class="zekr">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ٦ صِرَاطَ الَّذِينَ
+              أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا
+              الضَّالِّينَ ٧</span>
+            <span class="quoted" id="quoted">﴿ سورة الفاتحة ﴾</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card your-azkar-handler">
+      <div class="container">
+        <i class="fa-solid fa-x close"></i>
+        <button type="button" class="add-special-azkar">
+          <p dir="auto">إضافة أذكار +</p>
+        </button>
+        <div class="add-azkar">
+          <label for="zakr">الذكر</label>
+          <textarea name="zakr" id="zakr"></textarea>
+          <label for="repetition">عدد التكرارات</label>
+          <input type="number" id="repetition" />
+          <div class="btns">
+            <button type="button" class="confirm-add-special-azkar">
+              <p dir="auto">إضافة</p>
+            </button>
+            <button type="button" class="cancel-add-special-azkar">
+              <p dir="auto">إلغاء</p>
+            </button>
+          </div>
+        </div>
+        <p class="zekr-type-title" id="zekr-type-title">أذكارك الخاصة</p>
+        <div class="azkar-area">
+        </div>
+      </div>
+    </div>
+    <div class="prayer-times">
+      <div class="container">
+        <ul></ul>
+        <div class="hero-msg">
+          <h1>
+            <bdi class="clock">
+              <span id="time"></span>
+              <sub id="time-period"></sub>
+            </bdi>
+          </h1>
+          <span class="surah-name" id="surah-name"></span>
+          <h2 class="ayat-alquran" id="ayat-alquran"></h2>
+        </div>
+        <div class="controllers" id="controllers">
+          <button id="prev">prev</button>
+          <button id="next">next</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="handler">
+        <div class="star" id="star">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" class="AboutMe__icon"
+            aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
+            </path>
+          </svg>
+        </div>
+        <div class="remembering-cause">
+          <strong>مضى على إحتلال <span>فلسطين</span>
+            <span id="occupation-years"></span> سنة
+            =>
+            <span id="occupation-months"></span> شهور
+          </strong>
+        </div>
+        <!-- Start Settings Menu -->
+        <div class="settings" id="settings">
+          <div class="settings-menu">
+            <ul id="settings-Tabs-Titles">
+              <li class="active" data-settingTabTitle="general">General</li>
+              <li class="" data-settingTabTitle="not">Verse Settings</li>
+              <li class="" data-settingTabTitle="not">Prayer Settings</li>
+              <li class="" data-settingTabTitle="bg-settings">
+                Background Settings
+              </li>
+            </ul>
+            <div class="popup-menu">
+              <div class="popup-menu-row">
+                <span>Date</span>
+                <div>
+                  <label>
+                    <input type="checkbox" checked data-setting="date" />
+                    <div class="toggle-switch"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="popup-menu-row">
+                <span>Clock</span>
+                <div>
+                  <label>
+                    <input type="checkbox" checked data-setting="clock" />
+                    <div class="toggle-switch"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="popup-menu-row">
+                <span>Prayer Times</span>
+                <div>
+                  <label>
+                    <input type="checkbox" checked data-setting="prayer-times" />
+                    <div class="toggle-switch"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="popup-menu-row">
+                <span>Remembering The Palestinian Cause</span>
+                <div>
+                  <label>
+                    <input type="checkbox" checked data-setting="remembering" />
+                    <div class="toggle-switch"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true"
+            focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z">
+            </path>
+          </svg>
+        </div>
+        <!-- End Settings Menu -->
+      </div>
+    </footer>
+    <!-- Start About Me -->
+    <div class="about-me-container">
+      <div class="container">
+        <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true">
+          <path fill="currentColor"
+            d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z">
+          </path>
+        </svg>
+        <img src="assets/imgs/myimg.jpeg" alt="my photo" />
+        <h1>Wesam Abutaima</h1>
+        <p>Front-End Developer</p>
+        <span>Thank you for visiting my gallery! Here, you can explore my diverse collection of creations. If you have
+          any questions,
+          requests, or interest in any of my projects, please don't hesitate to contact me. As a programming and
+          application
+          development expert, I am here to serve you and assist you in reaching your goals.</span>
+      </div>
+    </div>
+    <!-- End About Me -->
+  </main>
+  <!-- js -->
+  <script src="assets/js/main.js"></script>
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    async function fetchPrayerTimings() {
+      try {
+        const response = await axios.get("https://api.aladhan.com/v1/timingsByCity/:date?city=PS-KYS&country=Palestine");
+        const prayerTimings = response.data.data.timings;
+        const dateTimings = response.data.data.date;
+        const content = `
+      <li>
+        <span>الفجر</span>
+        <div class="time">
+          <span>${prayerTimings.Fajr}</span>
+          <span class="am-bm">am</span>
+        </div>
+      </li>
+      <li>
+        <span>الشروق</span>
+        <div class="time">
+          <span>${prayerTimings.Sunrise}</span>
+          <span class="am-bm">am</span>
+        </div>
+      </li>
+      <li>
+        <span>الظهر</span>
+        <div class="time">
+          <span>${prayerTimings.Dhuhr}</span>
+          <span class="am-bm">pm</span>
+        </div>
+      </li>
+      <li>
+        <span>العصر</span>
+        <div class="time">
+          <span>${prayerTimings.Asr}</span>
+          <span class="am-bm">pm</span>
+        </div>
+      </li>
+      <li>
+        <span>المغرب</span>
+        <div class="time">
+          <span>${prayerTimings.Maghrib}</span>
+          <span class="am-bm">pm</span>
+        </div>
+      </li>
+      <li>
+        <span>العشاء</span>
+        <div class="time">
+          <span>${prayerTimings.Isha}</span>
+          <span class="am-bm">pm</span>
+        </div>
+      </li>
+    `;
+        document.querySelector(".prayer-times .container ul").insertAdjacentHTML("beforeend", content);
+        const hijriDate = document.getElementById("hijri-date");
+        const date = document.getElementById("date");
+        hijriDate.innerHTML = `${dateTimings.hijri.day} ${dateTimings.hijri.month.ar}  ${dateTimings.hijri.year}  هـ`;
+        date.innerHTML = `${dateTimings.readable}`;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    console.log(
+      "performance After Prayers Time Loaded:  " +
+      performance.now()
+    );
+    fetchPrayerTimings();
+  </script>
+</body>
+
+</html>

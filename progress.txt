@@ -1,0 +1,17 @@
+[x] Azkar Nav Menu
+[x] Settings 
+[x] Athan
+[ ] Quran
+[ ] Responsive
+
+===
+[x] سيد الاستفار 
+=== 
+=== 
+اقرأ المزيد في إسلام أون لاين :
+[x] https://islamonline.net/%D8%B3%D9%8A%D8%AF-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%BA%D9%81%D8%A7%D8%B1/
+=== 
+==== Next ====
+[x] Add Specail Azkar To localstorage , page [as todolist - elzero]
+=== For Search ===
+[x] https://dorar.net/hadith/search
