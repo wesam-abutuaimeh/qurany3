@@ -1,7 +1,7 @@
 [x] Azkar Nav Menu
 [x] Settings 
 [x] Athan
-[ ] Quran
+[x] Quran
 [ ] Responsive
 
 ===

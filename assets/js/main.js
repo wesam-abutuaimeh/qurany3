@@ -56,8 +56,10 @@ timePeriod.innerHTML = timePeriodText;
 const formattedTime = `${currentHour}:${currentMinutes}`;
 currentTimeElement.innerHTML = formattedTime;
 
-const AYAT_HOLDER = document.getElementById("ayat-alquran");
-const SURAH_NAME = document.getElementById("surah-name");
+const AR_VersesHolder = document.getElementById("verses-in-ar");
+const EN_VersesHolder = document.getElementById("verses-in-en");
+const verseNameInEn = document.getElementById("surah-name");
+const verseNameInAr = document.getElementById("surah-name-ar");
 const NEXT_AYA = document.getElementById("next");
 const PREV_AYA = document.getElementById("prev");
 
@@ -65,7 +67,9 @@ let ayaIndex = localStorage.getItem("Aya_Index") ?? 1;
 let quranSound = document.getElementById("quran-sound");
 
 function fetchVerse() {
-  fetch(`http://api.alquran.cloud/v1/ayah/${ayaIndex}/ar`)
+  fetch(
+    `http://api.alquran.cloud/v1/ayah/${ayaIndex}/editions/quran-uthmani,en.asad,en.pickthall`
+  )
     .then((response) => {
       if (!response.ok) {
         throw new Error("Data Not Found!");
@@ -73,16 +77,19 @@ function fetchVerse() {
       return response.json();
     })
     .then((data) => {
-      console.log(data.data.text);
-      AYAT_HOLDER.innerHTML = data.data.text;
-      SURAH_NAME.innerHTML = `${data.data.surah.name} - ${data.data.number}  `;
+      AR_VersesHolder.innerHTML = data.data[0].text;
+      EN_VersesHolder.innerHTML = data.data[1].text;
+      verseNameInEn.innerHTML = `${data.data[1].surah.englishName} - ${data.data[1].number}  `;
+      verseNameInAr.innerHTML = `${data.data[0].surah.name} - ${data.data[0].number}  `;
     })
     .catch((error) => {
-      console.error(error);
+      // console.log(new Error("Error"));
+      console.error("Error");
     });
   localStorage.setItem("Aya_Index", ayaIndex);
 }
 fetchVerse();
+
 function audioPlay() {
   let audio = new Audio(
     `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${ayaIndex}.mp3`
@@ -450,7 +457,6 @@ function handleSettingChange(event) {
 }
 
 // palestine 💔 occupation
-
 const PS_OCCUPATION_DATE = new Date("May 14, 1948");
 const NOW_DATE = new Date();
 const DIFFERENCE_IN_YEARS = Math.trunc(
