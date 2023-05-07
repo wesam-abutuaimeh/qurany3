@@ -134,24 +134,28 @@
     <div class="prayer-times">
       <div class="container">
         <ul></ul>
-        <div class="hero-msg">
+        <div class="verse-container">
           <h1>
             <bdi class="clock">
               <span id="time"></span>
               <sub id="time-period"></sub>
             </bdi>
           </h1>
-          <span class="surah-name" id="surah-name"></span>
-          <span class="surah-name" id="surah-name-ar"></span>
-          <h2 class="verses-in-ar" id="verses-in-ar"></h2>
-          <bdi>
-            <h2 class="verses-in-en" id="verses-in-en"></h2>
-          </bdi>
+          <div class="hero-msg">
+            <span class="surah-name" id="surah-name"></span>
+            <span class="surah-name" id="surah-name-ar"></span>
+            <h2 class="verses-in-ar" id="verses-in-ar"></h2>
+            <bdi>
+              <h2 class="verses-in-en" id="verses-in-en"></h2>
+            </bdi>
+          </div>
+          <div class="controllers" id="controllers">
+            <button id="prev">prev</button>
+            <button id="next">next</button>
+          </div>
+
         </div>
-        <div class="controllers" id="controllers">
-          <button id="prev">prev</button>
-          <button id="next">next</button>
-        </div>
+
       </div>
     </div>
     <footer>
@@ -178,6 +182,17 @@
               <li class="" data-settingTabTitle="bg-settings"> Background Settings </li>
             </ul>
             <div class="popup-menu">
+
+
+
+              <div class="popup-menu-row">
+                <span>Language</span>
+                <select name="language" id="language" data-setting="dir">
+                  <option value="ar">العربية</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
+
               <div class="popup-menu-row">
                 <span>Date</span>
                 <div>

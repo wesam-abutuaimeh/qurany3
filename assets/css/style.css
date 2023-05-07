@@ -80,7 +80,6 @@ header .container nav span {
   height: calc(100vh - 143px);
   display: flex;
   align-items: center;
-  justify-content: center;
   text-align: center;
   position: relative;
 }
@@ -95,7 +94,14 @@ header .container nav span {
 }
 .prayer-times ul li div {
   padding-top: 10px;
+  display: flex;
   direction: initial;
+}
+.verse-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .prayer-times ul li .am-bm {
   padding-left: 5px;
@@ -106,6 +112,9 @@ header .container nav span {
   flex: 2;
   margin: 0 20px;
   position: relative;
+  background-color: #827d7d73;
+  border-radius: 6px;
+  width: calc(100% - 50px);
 }
 .prayer-times .hero-msg .surah-name {
   position: absolute;
@@ -113,8 +122,8 @@ header .container nav span {
   right: 30px;
   left: auto;
   font-weight: 500;
-  background-color: #000;
-  color: #fff700;
+  background-color: var(--bg-color-);
+  color: #fff;
   padding: 4px 8px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -122,17 +131,23 @@ header .container nav span {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
 }
-.prayer-times .hero-msg h1 {
+.prayer-times h1 {
   font-size: 55px;
   font-weight: 900;
   margin-bottom: 10px;
 }
 .prayer-times .hero-msg h2 {
-  background-color: #827d7d73;
+  font-family: "Amiri Quran", serif;
   font-size: 30px;
-  padding: 20px;
-  line-height: 1.7;
-  border-radius: 6px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  -ms-background-clip: text;
+  background-color: #fff;
+  color: #fff0;
+  /* padding: 20px; */
+  line-height: 2;
 }
 .prayer-times .hero-msg h2:nth-child(2) {
   border-radius: 0;
@@ -142,14 +157,7 @@ header .container nav span {
   -o-border-radius: 0;
 }
 .prayer-times .container .controllers {
-  position: absolute;
-  left: 47%;
-  bottom: 25%;
-  transform: translateX(0);
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0);
+  margin-top: 10px;
 }
 .prayer-times .container .controllers button {
   appearance: none;
@@ -354,9 +362,17 @@ footer .star svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 58px;
+  height: 47px;
   padding: 0 10px;
   border-bottom: 1px solid var(--border-color-);
+}
+.popup-menu-row select {
+  outline: none;
+  border: none;
+  background-color: #0075ff;
+  color: white;
+  padding: 5px;
+  border-radius: 20px;
 }
 label {
   display: flex;

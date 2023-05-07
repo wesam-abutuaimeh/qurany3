@@ -89,10 +89,10 @@ function fetchVerse() {
   localStorage.setItem("Aya_Index", ayaIndex);
 }
 fetchVerse();
-
+//ps://cdn2.islamic.network/quran/audio/32/ar.alafasy/133.mp3
 function audioPlay() {
   let audio = new Audio(
-    `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${ayaIndex}.mp3`
+    `https://cdn.islamic.network/quran/audio/128/ar.husary/${ayaIndex}.mp3`
   );
   audio.addEventListener("canplaythrough", (event) => {
     audio.play();
@@ -419,11 +419,9 @@ function showSettingsContent(tab) {
   }
   popupMenu.innerHTML = content;
 }
-
 function handleSettingChange(event) {
   const input = event.target;
   const setting = input.getAttribute("data-setting");
-
   switch (setting) {
     case "date":
       hijriDateCheckbox.style.display = input.checked ? "inline-block" : "none";

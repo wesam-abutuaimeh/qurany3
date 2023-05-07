@@ -25,10 +25,3 @@ body {
   left: 30px;
   right: auto;
 }
-.prayer-times .container .controllers {
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-}
