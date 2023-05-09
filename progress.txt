@@ -3,6 +3,9 @@
 [x] Athan
 [x] Quran
 [ ] Responsive
+[ ] Add More One Reader
+[ ] Responsive
+[ ] Responsive
 
 ===
 [x] سيد الاستفار 

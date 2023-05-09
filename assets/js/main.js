@@ -63,8 +63,8 @@ const verseNameInAr = document.getElementById("surah-name-ar");
 const NEXT_AYA = document.getElementById("next");
 const PREV_AYA = document.getElementById("prev");
 
-let ayaIndex = localStorage.getItem("Aya_Index") ?? 1;
-let quranSound = document.getElementById("quran-sound");
+let ayaIndex = localStorage.getItem("ayaIndex") ?? 1;
+let verseReader = "ar.alafasy";
 
 function fetchVerse() {
   fetch(
@@ -79,20 +79,19 @@ function fetchVerse() {
     .then((data) => {
       AR_VersesHolder.innerHTML = data.data[0].text;
       EN_VersesHolder.innerHTML = data.data[1].text;
-      verseNameInEn.innerHTML = `${data.data[1].surah.englishName} - ${data.data[1].number}  `;
-      verseNameInAr.innerHTML = `${data.data[0].surah.name} - ${data.data[0].number}  `;
+      verseNameInEn.innerHTML = `${data.data[1].surah.englishName} - ${data.data[1].number}`;
+      verseNameInAr.innerHTML = `${data.data[0].surah.name} - ${data.data[0].number}`;
     })
     .catch((error) => {
-      // console.log(new Error("Error"));
       console.error("Error");
     });
-  localStorage.setItem("Aya_Index", ayaIndex);
+  localStorage.setItem("ayaIndex", ayaIndex);
 }
 fetchVerse();
-//ps://cdn2.islamic.network/quran/audio/32/ar.alafasy/133.mp3
+
 function audioPlay() {
   let audio = new Audio(
-    `https://cdn.islamic.network/quran/audio/128/ar.husary/${ayaIndex}.mp3`
+    `https://cdn.islamic.network/quran/audio/128/${verseReader}/${ayaIndex}.mp3`
   );
   audio.addEventListener("canplaythrough", (event) => {
     audio.play();
@@ -108,6 +107,7 @@ PREV_AYA.addEventListener("click", () => {
   fetchVerse();
   audioPlay();
 });
+// add event listener to select element
 
 const AZKAR_ICON = document.getElementById("azkar");
 const QUICK_LINKS_ICON = document.getElementById("quick-links");
@@ -339,7 +339,18 @@ function activateSettingsTab(tab) {
   settingsTabs.forEach((t) => t.classList.remove("active"));
   tab.classList.add("active");
 }
-
+let selectContent = `
+      <div class="popup-menu-row">
+        <span>Verse Reader</span>
+        <div>
+          <select id="reader">
+          <option value="ar.shaatree">shaatree</option>
+          <option value="ar.husary">husary</option>
+          <option value="ar.alafasy">alafasy</option>
+          </select>
+        </div>
+      </div>
+`;
 function showSettingsContent(tab) {
   let content = "";
 
@@ -375,7 +386,24 @@ function showSettingsContent(tab) {
         </div>
       </div>
     `;
-  } else if (tab.dataset.settingtabtitle === "general") {
+  }
+
+  if (tab.dataset.settingtabtitle === "verse") {
+    content = `
+      <div class="popup-menu-row">
+        <span>Verse Reader</span>
+        <div>
+          <select id="reader">
+          <option value="ar.shaatree">shaatree</option>
+          <option value="ar.husary">husary</option>
+          <option value="ar.alafasy">alafasy</option>
+          </select>
+        </div>
+      </div>
+    `;
+  }
+
+  if (tab.dataset.settingtabtitle === "general") {
     content = `
       <div class="popup-menu-row">
         <span>Date</span>
@@ -414,7 +442,9 @@ function showSettingsContent(tab) {
         </div>
       </div>
     `;
-  } else if (tab.dataset.settingtabtitle === "notReady") {
+  }
+
+  if (tab.dataset.settingtabtitle === "notReady") {
     return;
   }
   popupMenu.innerHTML = content;
