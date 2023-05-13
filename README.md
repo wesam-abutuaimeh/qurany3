@@ -6,7 +6,17 @@ Through my use of advanced skills in working with
 - modern HTML5 updated tags such as template tag and more ,
 - CSS3 features,
 - and JavaScript ES6+7.
+- npm
 
 
 I have created a feature-rich and visually appealing website that demonstrates my expertise in modern web development and my ability to integrate external APIs and use modern web standards is a testament to my skill as a developer .
+
+Features Not Completed :
+<br/>
+[  ] Versa Settings<br/>
+[  ] Responsive<br/>
+
+<hr/>
+
 ###### Dev.Wesam Abutaima
+
