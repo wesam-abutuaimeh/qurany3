@@ -2,11 +2,7 @@
 [x] Settings 
 [x] Athan
 [x] Quran
-[ ] Responsive
-[ ] Add More One Reader
-[ ] Responsive
-[ ] Responsive
-
+[ ] Versa Settings
 ===
 [x] سيد الاستفار 
 === 

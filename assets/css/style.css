@@ -342,8 +342,8 @@ footer .star svg {
 .settings-menu::after {
   position: absolute;
   content: "";
-  right: 31px;
-  left: auto;
+  left: 31px;
+  right: auto;
   bottom: -21px;
   border-style: solid;
   border-color: var(--border-color-) transparent transparent transparent;
@@ -379,14 +379,7 @@ footer .star svg {
   padding: 0 10px;
   border-bottom: 1px solid var(--border-color-);
 }
-.popup-menu-row select {
-  outline: none;
-  border: none;
-  background-color: #0075ff;
-  color: white;
-  padding: 5px;
-  border-radius: 20px;
-}
+
 label {
   display: flex;
 }
