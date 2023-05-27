@@ -324,8 +324,8 @@ aboutMeContainerHide.addEventListener("click", (e) => {
 
 settingsIcon.addEventListener("click", toggleSettingsMenu);
 settingsTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    activateSettingsTab(tab);
+  tab.addEventListener("click", (e) => {
+    activateSettingsTab(e);
     showSettingsContent(tab);
   });
 });
@@ -335,10 +335,11 @@ function toggleSettingsMenu() {
   settingsMenu.classList.toggle("show");
 }
 
-function activateSettingsTab(tab) {
-  settingsTabs.forEach((t) => t.classList.remove("active"));
-  tab.classList.add("active");
+function activateSettingsTab(e) {
+    document.querySelector(".active").classList.remove("active");
+    e.target.classList.add("active");
 }
+
 let selectContent = `
       <div class="popup-menu-row">
         <span>Verse Reader</span>
